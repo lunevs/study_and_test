@@ -1,0 +1,21 @@
+body {
+    background-color: aqua;
+}
+hr {
+    border-color: black;
+    border-style:  dotted none none none;
+    border-width: 8px;
+    width: 70px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-color: inherit;
+    border-width: 5px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+
