@@ -3,74 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Sergey Lunev's home page</title>
-    <style>
-        body {
-            background-color: aqua;
-        }
-        hr {
-            border-color: black;
-            border-style:  dotted none none none;
-            border-width: 8px;
-            width: 70px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
-    <table cellspacing="20">
-        <tr>
-            <td>
-                <img src="https://mbchurch.ru/upload/iblock/670/do3dzoemzgxca1ama1wt9mpv41aw28j6/mac150-02085-1.jpg" alt="Sergey Lunev" width="200px" />
-            </td>
-            <td>
-                <h1>Sergey Lunev</h1>
-                <p>I am <strong>studding</strong> web development now. I want to be <em>a professional</em></p>
-                <p>one of my favorite quote: <cite>"if you can dream it, you can do it". Walt Disney</cite></p>
-            </td>
-        </tr>
-    </table>
 
-    <hr />
+    <div class="topContainer">
+        <h1>I'm Lunev Sergey</h1>
+        <img class="topCloud" src="images/cloud.png" alt="cloud-image" />
+        <h2>a fullstack <span class="underlined">pro</span>grammer</h2>
+        <img class="bottomCloud" src="images/cloud.png" alt="cloud-image" />
+        <img src="images/mountain.png" alt="mountain-image" />
+    </div>
 
-    <h3>My personal goals for the year</h3>
-    <ol>
-        <li>level up in english</li>
-        <li>two levels up in web development</li>
-        <li>make 5 cool study projects</li>
-    </ol>
+    <div class="middle-container">
+        <div class="profile">
+            <img class="personal roundedImage" src="images/photo.jpeg" alt="Sergey Lunev" />
+            <h2>Hello.</h2>
+            <p class="intro">I am <strong>studding</strong> web development now. I want to be <em>a professional</em>.
+            One of my favorite quote: <cite>"if you can dream it, you can do it". Walt Disney</cite></p>
+        </div>
+        <hr>
+        <div class="skills">
+            <h2>My Skills.</h2>
+            <div class="skill-row">
+                <img class="floatLeft roundedImage" src="images/chillies.png" alt="">
+                <h3>Lorem & Ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, quis in duis, iaculis id felis. Consectetuer vestibulum, nunc urna lectus, erat ligula. Hendrerit nam, lectus ante, ut lorem eros.</p>
+            </div>
+            <div class="skill-row">
+                <img class="floatRight roundedImage" src="images/developer.gif" alt="">
+                <h3>Lorem Ipsum Dolor</h3>
+                <p>Lorem ipsum dolor sit amet, mauris sed consectetuer. Etiam et eu, bibendum interdum, lacus quis mauris. Curabitur wisi, quisque vel eu, rutrum nam.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="contact-me">
+            <h2>Get In Touch</h2>
+            <h3>Lorem ipsum dolor sit amet, non elit.</h3>
+            <p>Lorem ipsum dolor sit amet, in quis, aenean amet. Phasellus sodales, tellus donec dui, ornare erat.</p>
+            <a class="btn" href="mailto:name@email.com">CONTACT ME</a>
+        </div>
+    </div>
 
-    <hr />
 
-    <h3>My skills</h3>
-    <table>
-        <tr>
-            <td>SQL</td>
-            <td>⭐️⭐️⭐️⭐️⭐️</td>
-        </tr>
-        <tr>
-            <td>Web API</td>
-            <td>⭐️⭐️⭐️⭐️⭐️</td>
-        </tr>
-        <tr>
-            <td>Leadership</td>
-            <td>⭐️⭐️⭐️</td>
-        </tr>
-        <tr>
-            <td>Agile</td>
-            <td>⭐️⭐️⭐️</td>
-        </tr>
-        <tr>
-            <td>JavaScript</td>
-            <td>⭐️⭐️</td>
-        </tr>
-        <tr>
-            <td>Linux</td>
-            <td>⭐️⭐️</td>
-        </tr>
-    </table>
+    <div class="bottom-container">
+        <a class="footer-link" href="https://www.linkedin.com/">LinkedIn</a>
+        <a class="footer-link" href="https://twitter.com/">Twitter</a>
+        <a class="footer-link" href="https://www.appbrewery.co/">Website</a>
+        <p>© Lunev Sergey.</p>
+    </div>
 
-    <hr />
-
-    <a href="myhobbies.html">my hobbies</a>
 
 </body>
 </html>
