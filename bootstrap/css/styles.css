@@ -7,16 +7,21 @@ body {
 
 h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 1.5;
     font-weight: 900;
 }
-
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: 600;
+}
 h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     line-height: 1.5;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 /*************************** TITLE SECTION **************************************/
@@ -54,14 +59,30 @@ h3 {
 }
 
 .title-image {
-    width: 60%;
+    width: 20%;
     transform: rotate(25deg);
+    position: absolute;
+    right: 20%;
+}
+
+@media (max-width: 1200px) {
+    #title {
+        text-align: center;
+    }
+    .title-image {
+        width: 200px;
+        transform: rotate(0);
+        position: static;
+    }
+        
 }
 
 
 /************************* FEATURES ***********************/
 #features {
     padding: 7% 15%;
+    background-color: #fff;
+    position: relative;
 }
 .features-section-icons {
     color: #ef8172;
@@ -78,3 +99,61 @@ h3 {
     margin: 0 auto;
     padding: 5%;
 }
+
+/************************  testimonials  ****************************/
+#testimonials {
+    background-color: #ef8172;
+    color: #fff;
+    text-align: center;
+}
+.carousel-item {
+    padding: 7% 15%;
+}
+.testimonial-logo {
+    width: 10%;
+    border-radius: 50%;
+    margin: 20px;
+}
+#press {
+    background-color: #ef8172;
+    text-align: center;
+    margin-bottom: 3%;
+}
+#press img {
+    width: 15%;
+    margin: 20px 20px 50px;
+}
+
+
+/****************************** PRICING ******************************/
+#pricing {
+    padding: 100px;
+}
+.pricing-box {
+    padding: 3%;
+    text-align: center;
+}
+
+/****************************** Call to Action ****************************/
+#cta {
+    background-color: #ff4c68;
+    color: #fff;
+    padding: 7% 15%;
+    text-align: center;
+}
+.cta-heading {
+    font-family: 'Montserrat';
+    font-weight: 900;
+    line-height: 1.5;
+    font-size: 3rem;
+}
+
+/****************************** FOOTER **************************************/
+#footer {
+    padding: 7% 15%;
+    text-align: center;
+}
+.footer-brand {
+    padding: 1%;
+}
+
