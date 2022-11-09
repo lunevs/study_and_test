@@ -6,19 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script>
-        function checkLove(event) {
-            //event.preventDefault();
-            console.log(event.target);
-        }
-    </script>
 </head>
 <body>
+    <button name="simple" id="my-button" onclick="changeColor();">just button</button>
+    <br />
     <form>
         <input type="text" name="firstName" />
         <input type="text" name="secondName" />
         <input type="text" disabled="true" name="resultField" />
         <button onclick="checkLove">Check</button>
     </form>
+    <script src="index.js" />
 </body>
 </html>
