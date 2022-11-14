@@ -39,3 +39,15 @@ for (let j=0; j<100; j++) {
     res[whosPaying(arr)] += 1;
 }
 console.log(res);
+
+
+function HouseKeeper (yearsOfExp, name, cleanLike) {
+    this.yearsOfExp = yearsOfExp;
+    this.name = name;
+    this.cleanLike = cleanLike;
+}
+
+let hk1 = new HouseKeeper(21, "Angela", ["room", "baths"]);
+let hk2 = new HouseKeeper(12, "Timmy", ["baths"]);
+console.log(hk1);
+console.log(hk2);

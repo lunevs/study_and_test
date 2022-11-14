@@ -1,3 +1,5 @@
-function changeColor() {
-    document.getElementById("my-button").style.backgroundColor = "yellow";
-}
+
+
+$(document).keydown((event) => {
+   $("h1").text(event.key);
+});
