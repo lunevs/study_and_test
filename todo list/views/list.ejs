@@ -1,21 +1,21 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>TO DO list</title>
-    </head>
-    <body>
-        <h1> <%= inFileApp %> </h1>
+<%- include("header") -%>
 
-        <ul>
+        <div class="box" id="heading">
+            <h1> <%= inFileApp %> </h1>
+        </div>
+
+        <div class="box">
             <% for (let i of todoList) { %>
-                <li><%= i %></li>
+                <div class="item">
+                    <input type="checkbox" />
+                    <p><%= i %></p>
+                </div>
             <% } %>
-        </ul>
-        <form method="post" action="/">
-            <input type="text" name="inputValue" />
-            <button type="submit">Submit</button>
-        </form>
 
-    </body>
-</html>
+            <form class="item" method="post" action="/">
+                <input type="text" name="inputValue" placeholder="New Item" autocomplete="off" />
+                <button type="submit" name="list" value="<%= inFileApp %>" >+</button>
+            </form>
+        </div>
+
+<%- include("footer") -%>
