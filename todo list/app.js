@@ -3,16 +3,36 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+const { MONGODB_URI } = require("./config");
+
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://127.0.0.1:27017/todolistDB');
-const Item = mongoose.model("Item", new Schema({ name: String }));
-const do1 = new Item({name: "wash my car"});
-const do2 = new Item({name: "buy tickets to the moon"});
-Item.insertMany([do1, do2], err => console.log(err));
+mongoose.set('strictQuery', false);
+
+mongoose
+    .connect(MONGODB_URI)
+    .then(() => {
+        console.log('connected to MongoDB')
+
+        const Item = mongoose.model("Item", new Schema({ name: String }));
+        const do1 = new Item({name: "wash my car"});
+        const do2 = new Item({name: "buy tickets to the moon"});
+        Item.insertMany([do1, do2], err => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("yes!")
+            }
+        })
+
+    })
+    .catch((error) => {
+        console.log('error connection to MongoDB:', error.message)
+    })
+
 
 app.get("/", (req, res) => {
     let today = new Date();
