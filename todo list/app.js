@@ -11,23 +11,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set('strictQuery', false);
+const Item = mongoose.model("Item", new Schema({ name: String }));
+const do1 = new Item({name: "wash my car"});
+const do2 = new Item({name: "buy tickets to the moon"});
 
 mongoose
     .connect(MONGODB_URI)
     .then(() => {
         console.log('connected to MongoDB')
-
-        const Item = mongoose.model("Item", new Schema({ name: String }));
-        const do1 = new Item({name: "wash my car"});
-        const do2 = new Item({name: "buy tickets to the moon"});
-        Item.insertMany([do1, do2], err => {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log("yes!")
-            }
-        })
-
     })
     .catch((error) => {
         console.log('error connection to MongoDB:', error.message)
@@ -35,14 +26,21 @@ mongoose
 
 
 app.get("/", (req, res) => {
-    let today = new Date();
-    let options = {
-        weekday: "long",
-        day: "numeric",
-        month: "long"
-    }
-    let day = today.toLocaleDateString("ru-RU", options);
-    res.render("list", {inFileApp: day, todoList: items});
+
+    Item.find({}, (err, result) => {
+        if (result.length === 0) {
+            Item.insertMany([do1, do2], err => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log("yes!")
+                }
+            })
+            res.redirect("/");
+        } else {
+            res.render("list", {inFileApp: "Today", todoList: result});
+        }
+    })
 })
 
 app.get("/about", (req, res) => {
@@ -54,17 +52,11 @@ app.get("/work", (req, res) => {
 })
 
 app.post("/", (req, res) => {
-    let item = req.body.inputValue;
 
-    console.log(req.body);
+    const item = new Item({name: req.body.inputValue});
+    item.save();
 
-    if (req.body.list === "work todo list") {
-        workItems.push(item);
-        res.redirect("/work");
-    } else {
-        items.push(item);
-        res.redirect("/");
-    }
+    res.redirect("/");
 })
 
 
