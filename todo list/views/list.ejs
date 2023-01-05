@@ -6,10 +6,13 @@
 
         <div class="box">
             <% todoList.forEach(el => { %>
-                <div class="item">
-                    <input type="checkbox" />
-                    <p><%= el.name %></p>
-                </div>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" name="checkbox" value="<%= el._id %>" onchange="this.form.submit()" />
+                        <p><%= el.name %></p>
+                    </div>
+                    <input type="hidden" name="listName" value="<%= inFileApp %>" />
+                </form>
             <% }) %>
 
             <form class="item" method="post" action="/">
