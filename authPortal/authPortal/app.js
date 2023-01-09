@@ -1,9 +1,9 @@
+require("dotenv").config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-
-const { MONGODB_URI } = require("./config");
+const encrypt = require("mongoose-encryption");
 
 const app = express();
 
@@ -12,11 +12,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.set('strictQuery', false);
-mongoose.connect(MONGODB_URI);
+mongoose.connect(`mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@127.0.0.1/${process.env.MONGODB_DBNAME}`);
+
 const userSchema = new mongoose.Schema({
     email: String,
     password: String
 });
+userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ['password']});
 const User = mongoose.model("User", userSchema);
 
 app.get("/", (req, res) => {
