@@ -9,11 +9,6 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate')
 
-//const encrypt = require("mongoose-encryption");
-//const md5 = require("md5");
-//const bcrypt = require("bcrypt");
-//const saltRounds = 10;
-
 const app = express();
 
 app.use(express.static('public'))
@@ -40,7 +35,6 @@ const userSchema = new mongoose.Schema({
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
-//userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ['password']});
 
 const User = mongoose.model("User", userSchema);
 
@@ -104,11 +98,6 @@ app.get("/submit", (req, res) => {
 })
 
 app.post("/submit", (req, res) => {
-    console.log("body= ");
-    console.log(req.body);
-    console.log("user= ");
-    console.log(req.user);
-
     User.findById(req.user.id, (err, foundUser) => {
         if (err) {
             console.log(err);
@@ -139,24 +128,6 @@ app.post("/login", (req, res) => {
         }
     });
 
-    // User.findOne({email: req.body.username}, (error, foundUser) => {
-    //     if (error) {
-    //         console.log(error)
-    //     } else {
-    //         if (foundUser) {
-    //             bcrypt.compare(req.body.password, foundUser.password, (err, result) => {
-    //                 if (result === true) {
-    //                     res.render("secrets")
-    //                 } else {
-    //                     res.send("Incorrect user password");
-    //                 }
-    //             })
-    //         } else {
-    //             res.send("No such user");
-    //         }
-    //     }
-    // });
-
 })
 
 app.get("/register", (req, res) => {
@@ -186,20 +157,6 @@ app.post("/register", (req, res) => {
         }
     })
 
-
-    // bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-    //     const currentUser = new User({
-    //         email: req.body.username,
-    //         password: hash
-    //     });
-    //     currentUser.save((error) => {
-    //         if (error) {
-    //             console.log(error)
-    //         } else {
-    //             res.render("secrets");
-    //         }
-    //     });
-    // })
 })
 
 app.listen(3000, () => {
