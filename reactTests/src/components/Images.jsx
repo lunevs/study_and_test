@@ -3,6 +3,18 @@ import React from "react";
 const Images = () => {
     return (
         <div>
+            <div className="box-line">
+                <div className="sq">
+                    <div className="circle">1</div>
+                </div>
+                <div className="sq">
+                    <div className="circle">2</div>
+                </div>
+                <div className="sq">
+                    <div className="circle">3</div>
+                </div>
+            </div>
+
             <img src="https://picsum.photos/200?grayscale" />
             <br />
             <br />
