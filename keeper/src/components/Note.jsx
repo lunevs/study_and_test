@@ -1,10 +1,11 @@
 import React from "react";
 
-const Note = () => {
+
+const Note = (props) => {
     return (
         <div className="note">
-            <h1>the first card header</h1>
-            <p>the first card body text</p>
+            <h1>{props.header}</h1>
+            <p>{props.body}</p>
         </div>
     );
 }

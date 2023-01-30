@@ -134,3 +134,45 @@ br {
     margin: 0 10px 20px 10px;
     line-height: 1.4;
 }
+
+/* *************************************** */
+.authBlock {
+    width: 500px;
+    margin: 100px auto;
+    text-align: center;
+    background-color: #50a3a2;
+    padding: 50px;
+    border: 1px solid rgba(252, 252, 252, 0.4);
+    border-radius: 20px;
+    box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.inpStyle {
+    width: 300px;
+    padding: 5px;
+    height: 40px;
+    margin: 10px auto;
+    font-size: 18px;
+    font-weight: 300;
+    background-color: rgba(252, 252, 252, 0.2);
+    border: 1px solid rgba(252, 252, 252, 0.4);
+    text-align: center;
+    color: white;
+    border-radius: 4px;
+}
+.inpStyle:focus-visible {
+    outline: white solid 1px;
+}
+.butStyle {
+    width: 300px;
+    padding: 5px;
+    height: 40px;
+    margin: 10px auto;
+    font-size: 20px;
+    font-weight: 300;
+    color: #50a3a2;
+    border: 1px solid rgba(252, 252, 252, 0.4);
+    border-radius: 4px;
+}
